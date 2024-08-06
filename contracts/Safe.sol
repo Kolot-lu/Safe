@@ -217,4 +217,12 @@ contract Safe {
         require(_token.transfer(owner, amount), "Platform funds withdrawal failed");
         emit PlatformWithdrawal(address(_token), amount);
     }
+
+    /**
+     * @dev Returns the milestones of a project.
+     * @param projectId ID of the project
+     */
+    function getMilestoneAmounts(uint256 projectId) external view returns (uint256[] memory) {
+        return projects[projectId].milestoneAmounts;
+    }
 }
