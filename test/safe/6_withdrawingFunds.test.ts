@@ -22,9 +22,9 @@ describe("Safe Contract Withdrawing Platform Funds", function () {
     const milestoneAmounts = [
       ethers.parseUnits("30", 18),
       ethers.parseUnits("30", 18),
-      ethers.parseUnits("39.5", 18),
+      ethers.parseUnits("39", 18),
     ];
-    const platformFeePercent = 50; // 0.5%
+    const platformFeePercent = 100; // 1%
 
     // Approve Safe contract to spend client's tokens
     await token.connect(client).approve(safe.target, totalAmount);
@@ -39,7 +39,6 @@ describe("Safe Contract Withdrawing Platform Funds", function () {
         platformFeePercent,
         token.target
       );
-    await safe.connect(client).fundProject(0);
 
     // Calculate platform fee
     const platformFee =
